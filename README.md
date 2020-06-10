@@ -19,6 +19,7 @@ What you need to do is :
   linux kernel :
   
   https://github.com/torvalds/linux/blob/master/drivers/hid/hidraw.c#L456
+  
   https://github.com/torvalds/linux/blob/master/include/uapi/linux/hidraw.h#L42
   
   add this code to your ASOP 
