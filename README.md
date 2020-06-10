@@ -11,21 +11,21 @@ If you want try this. You need change ASOP,Then complier it, Flash it.
 
 What you need to do is :
 
-1.open the hidraw file node (due to some unkone resone, Android close the /dev/hidraw* device file node, so you need open it.)
+1.Open the hidraw file node (due to some unkone resone, Android close the /dev/hidraw* device file node, so you need open it.)
 
-2.change some file in Android linux kernel.(linux/hidraw.h   linux/hidraw.c)
+2.Change some file in Android linux kernel.(linux/hidraw.h   linux/hidraw.c)
 
-  you can find the different between liunx kernel and android liunx kernel in this two files.
+>>You can find the different between liunx kernel and android liunx kernel in this two files.
   
-  linux kernel :
+>>Linux kernel :
   
-  https://github.com/torvalds/linux/blob/master/drivers/hid/hidraw.c#L456
+>>>>https://github.com/torvalds/linux/blob/master/drivers/hid/hidraw.c#L456
   
-  https://github.com/torvalds/linux/blob/master/include/uapi/linux/hidraw.h#L42
+>>>>https://github.com/torvalds/linux/blob/master/include/uapi/linux/hidraw.h#L42
   
-  add this code to your ASOP 
+>>Add this code to your ASOP 
   
-  file => private/msm-google/drivers/hid/hidraw.c
+>>File => private/msm-google/drivers/hid/hidraw.c
   ```java
   if (_IOC_NR(cmd) == _IOC_NR(HIDIOCGRAWUNIQ(0))) {
           int len = strlen(hid->uniq) + 1;
@@ -35,8 +35,11 @@ What you need to do is :
             -EFAULT : len;
           break;
         }
- ```     
- file => private/msm-google/include/uapi/linux/hidraw.h
+ ```  
+ <img src="https://raw.githubusercontent.com/lyonlui/Android_Joycon_Lib/master/img/hidraw_c.jpg" width="350" height="315">
+
+ >>File => private/msm-google/include/uapi/linux/hidraw.h
  ```c
  #define HIDIOCGRAWUNIQ(len)     _IOC(_IOC_READ, 'H', 0x08, len)
  ```
+  <img src="https://raw.githubusercontent.com/lyonlui/Android_Joycon_Lib/master/img/hidraw_h.jpg" width="600" height="160">
