@@ -16,6 +16,7 @@ What you need to do is :
 2.change some file in Android linux kernel.(linux/hidraw.h   linux/hidraw.c)
 
   you can find the different between liunx kernel and android liunx kernel in this two files.
+  
   linux kernel :
   
   https://github.com/torvalds/linux/blob/master/drivers/hid/hidraw.c#L456
