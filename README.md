@@ -56,11 +56,11 @@ What you need to do is :
  For arm64 platform
  
  # Install bin
-    adb push libs/arm64-v8a/joyconlib /data/local/tmp
+    adb push lib/arm64-v8a/joyconlib /data/local/tmp
  # Make the system partition writable
     mount -o remount,rw /system
  # Install libusb
-   adb push libs/arm64-v8a/libhidapi.so /sdcard/
+   adb push lib/arm64-v8a/libhidapi.so /sdcard/
    cat > /system/lib64/libhidapi.so < /sdcard/libhidapi.so
    rm /sdcard/libhidapi.so
    mount -o remount,ro /system
