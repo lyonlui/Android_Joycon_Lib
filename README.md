@@ -43,3 +43,10 @@ What you need to do is :
  #define HIDIOCGRAWUNIQ(len)     _IOC(_IOC_READ, 'H', 0x08, len)
  ```
   <img src="https://raw.githubusercontent.com/lyonlui/Android_Joycon_Lib/master/img/hidraw_h.jpg" width="600" height="160">
+  
+ 3.Change the device node file /dev/hidraw* permisson to 0666 (You can change forever, modify ASOP file system/core/rootdir/ueventd.rc)
+      
+      /dev/hidraw*  0666  root  root
+ 
+ 4.SELinux
+ >> Due to Android SElinux,Even we give /dev/hidraw* 0666, We still can not read or write it. So we need to close SELinux, or you can try write SELinux rule.
