@@ -12,9 +12,12 @@ If you want try this. You need change ASOP,Then complier it, Flash it.
 What you need to do is :
 
 1.open the hidraw file node (due to some unkone resone, Android close the /dev/hidraw* device file node, so you need open it.)
+
 2.change some file in Android linux kernel.(linux/hidraw.h   linux/hidraw.c)
+
   you can find the different between liunx kernel and android liunx kernel in this two files.
   linux kernel :
+  
   https://github.com/torvalds/linux/blob/master/drivers/hid/hidraw.c#L456
   https://github.com/torvalds/linux/blob/master/include/uapi/linux/hidraw.h#L42
   
