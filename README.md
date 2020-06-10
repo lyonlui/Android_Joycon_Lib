@@ -50,3 +50,22 @@ What you need to do is :
  
  4.SELinux
  >> Due to Android SElinux,Even we give /dev/hidraw* 0666, We still can not read or write it. So we need to close SELinux, or you can try write SELinux rule.
+ 
+ # After you do all thing above, You can try run the demo.
+ 
+ For arm64 platform
+ 
+ # Install bin
+    adb push libs/arm64-v8a/joyconlib /data/local/tmp
+ # Make the system partition writable
+    mount -o remount,rw /system
+ # Install libusb
+   adb push libs/arm64-v8a/libhidapi.so /sdcard/
+   cat > /system/lib64/libhidapi.so < /sdcard/libhidapi.so
+   rm /sdcard/libhidapi.so
+   mount -o remount,ro /system
+   
+ If all goes well, run it ,you may see thing like this videos.
+ 
+ [![Watch the video](https://img.youtube.com/vi/vFQA2OvD5sI/hqdefault.jpg)](https://youtu.be/vFQA2OvD5sI)
+ 
